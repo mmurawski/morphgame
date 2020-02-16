@@ -100,10 +100,10 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="morphgame" startnode="1" creator="Twine" creator-version="2.3.5" ifid="634CDE81-57B5-43B7-83C5-56715BA645FB" zoom="0.6" format="SugarCube" format-version="2.30.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="expo" color="red"></tw-tag><tw-passagedata pid="1" name="MorphIntro" tags="" position="627,172" size="100,100">&lt;&lt;cacheaudio &quot;mainsong&quot; &quot;music/new Intro.mp3&quot;&gt;&gt;
-&lt;&lt;set $haveGun to false&gt;&gt;
+	<tw-storydata name="morphgame" startnode="1" creator="Twine" creator-version="2.3.5" ifid="634CDE81-57B5-43B7-83C5-56715BA645FB" zoom="0.6" format="SugarCube" format-version="2.30.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="expo" color="red"></tw-tag><tw-passagedata pid="1" name="MorphIntro" tags="" position="627,172" size="100,100">&lt;&lt;set $haveGun to false&gt;&gt;
 &lt;&lt;set $haveBeep to false&gt;&gt;
-&lt;&lt;audio &quot;mainsong&quot; play&gt;&gt;
+&lt;&lt;audio mainsong play&gt;&gt;
+
 For the first time in my life have seasons be so distinct and natural here.
 
 I&#39;ve been working around this area for most of my life and even then, it&#39;s never been this bright.
@@ -193,14 +193,13 @@ I need to protect myself. Just in case.
 
 If I took this I can&#39;t take the scanner. It&#39;d be too much of a burden on me. Perhaps it would be better if I took the [[scanner.-&gt;BeepChoiceConfirm]]
 
-[[But now that I think about it... the rifle should probably be fine-&gt;gunReady]].</tw-passagedata><tw-passagedata pid="9" name="StoryInit" tags="" position="637,28" size="100,100">&lt;&lt;cacheaudio &quot;mainsong&quot; &quot;music/new Intro.mp3&quot;&gt;&gt;
+[[But now that I think about it... the rifle should probably be fine-&gt;gunReady]].</tw-passagedata><tw-passagedata pid="9" name="StoryInit" tags="" position="637,28" size="100,100">&lt;&lt;set $backEnd to false&gt;&gt;
+&lt;&lt;set $frontEnd to false&gt;&gt;
+
 &lt;&lt;cacheaudio &quot;exploration&quot; &quot;music/exploration.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;lab&quot; &quot;music/lab.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;theEnd&quot; &quot;music/apocalypse.mp3&quot;&gt;&gt;
-
-&lt;&lt;set $backEnd to false&gt;&gt;
-&lt;&lt;set $frontEnd to false&gt;&gt;
-</tw-passagedata><tw-passagedata pid="10" name="office" tags="" position="640,1095" size="100,100">This place has been a decent supply of electronics and other utilities for my base of operations. 
+&lt;&lt;cacheaudio &quot;theEnd&quot; &quot;music/theEnd.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;mainsong&quot; &quot;music/new Intro.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="office" tags="" position="640,1095" size="100,100">This place has been a decent supply of electronics and other utilities for my base of operations. 
 
 I&#39;ve been going here almost daily, but today, there just seems to be something off about it. I can&#39;t quite put my finger on it though...
 
@@ -220,7 +219,10 @@ Having something on my back really is a bit relaxing.
 [[Okay. Time to get going.-&gt;beforeOffice]] 
 
 &lt;&lt;set $haveBeep to true&gt;&gt;
-</tw-passagedata><tw-passagedata pid="12" name="gunReady" tags="" position="706,806" size="100,100">I loaded my gun with tons of ammo and slung it around my back.
+</tw-passagedata><tw-passagedata pid="12" name="gunReady" tags="" position="706,806" size="100,100">&lt;&lt;audio mainsong fadeout&gt;&gt;
+&lt;&lt;audio exploration play&gt;&gt;
+
+I loaded my gun with tons of ammo and slung it around my back.
 
 The familiar heavy weight put me at ease, as if everything would be all right.
 
@@ -439,10 +441,13 @@ Hopefully it was trapped with me in the rubble.
 
 [[If not...--&gt;GameOver]]
 
-&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="GameOver" tags="" position="639,2945" size="100,100"> &lt;&lt;audio lab fadeout&gt;&gt;
-
+&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="GameOver" tags="" position="639,2945" size="100,100">&lt;&lt;audio lab fadeout&gt;&gt;
+&lt;&lt;cacheaudio &quot;exploration&quot; &quot;music/exploration.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;lab&quot; &quot;music/lab.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;theEnd&quot; &quot;music/theEnd.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;mainsong&quot; &quot;music/new Intro.mp3&quot;&gt;&gt;
  
- This survivor has been claimed...
+This survivor has been claimed...
  
 &lt;&lt;if $backEnd is true&gt;&gt;The Project Hand has been activated&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $frontEnd is true&gt;&gt;The Project Head has been activated&lt;&lt;/if&gt;&gt;
@@ -488,7 +493,7 @@ I don&#39;t think I could ever understand. But one thing was certain.
 
 [[There was never any chance of retreat.-&gt;GameOver]]
 
-&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="TrueEnd" tags="" position="1729.6666666666667,224.66666666666666" size="100,100">&lt;&lt;audio apocalypse play&gt;&gt;
+&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="TrueEnd" tags="" position="1729.6666666666667,224.66666666666666" size="100,100">&lt;&lt;audio theEnd play&gt;&gt;
 
 I woke up today with a terrible headache.
 
@@ -578,7 +583,11 @@ I heard these words right in my head as the hands screamed them in thousands of 
 à̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜
 
 
-Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝
+Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿
+
+̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝
+
+[[Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜-&gt;TrueEnd8]]
 
 
 
@@ -594,7 +603,7 @@ à̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚
 
 
 
-[[Y̸̩̣̮̺̗̓̈́̅͂͆́̇͑͛̓̽̑͘ơ̸͈̆̏́̔̀͐̂͊̍̎̅̾̕̚u̸̢̩͚̖͕̤͕̯͎̗̮͚̙̬͗̓͑ ̵̡̡̡͍̥̳̩̦̦̳̖̫͕̣͊͒͐̑ͅà̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚ë̸̟̙̦͖̱̥̲̫̠̮͔̮̩̱̹́̏̾͑̏͊̿ ̵̨͖̲͙̞̖͍͍͈̇̂̉̇̔̄̒à̸̻̑̉͝ ̴̗̱͍͈̑̌̊̒̄͑̂̎͒̂͐̈́̑̕͜͝ͅh̸̨͓̫͇͈̘̺͓̭͊͂̅̔̇̔͆̋͋̕͝a̶̛̻̝̮̹̮̮͖̘͈͈̍͊̾̅̊̑͜n̴̛̬̮̻̥͈̔̌̎͌̓̄̈́̂̈̉͌̕͝ḋ̵̡̥͔̞͓̼̬̙̼̌.̷̤͗ ̴̡̘͕̣̼͙̺͔͇̥͓̳̌͑́̑̚͜-&gt;TrueEnd8]]</tw-passagedata><tw-passagedata pid="50" name="TrueEnd8" tags="" position="1749.6666666666667,1570.6666666666667" size="100,100">I see now.
+</tw-passagedata><tw-passagedata pid="50" name="TrueEnd8" tags="" position="1749.6666666666667,1570.6666666666667" size="100,100">I see now.
 
 [[I am a hand now.-&gt;GameOverTRUE]]</tw-passagedata><tw-passagedata pid="51" name="GameOverTRUE" tags="" position="1749.6666666666667,1720.6666666666667" size="100,100">You have reached the end of the game.
 
@@ -603,7 +612,7 @@ There is no more.
 You are a hand now.
 
 
-&lt;&lt;audio apocalypse fadeout&gt;&gt;
+&lt;&lt;audio theEnd fadeout&gt;&gt;
 </tw-passagedata><tw-passagedata pid="52" name="headTalks" tags="" position="145,2366.6666666666665" size="100,100">I quickally stepped away from the machine.. 
 
 	I̶̭͔͈͒̾̓̍ ̷̬͆̿̎̒̿ą̷̜̇m̸͚̈́̿̑͜͝ ̷̦̺͙̥̜͋̀n̴̳̱̪͇̙͛̍̓o̶̖͓͊̽w̷̧̻̰̟͊̊̕ ̵̫͙̿͛c̴̞̜̽̍ò̵̯̫̤̟̗̄m̶̬̠͍̍̐̐̓p̸̡̙̝̺͎͌̉͘ḽ̶̜̇ͅě̴̺̗͐̀̂̂t̶̨̋̿̃e̸̫̭͙͖͋́́
@@ -646,7 +655,7 @@ but I can&#39;t [[go...-&gt;preFrontGameOver]]
 
 
 </tw-passagedata><tw-passagedata pid="55" name="theVoice" tags="" position="144.33333333333337,1502.3333333333333" size="100,100">@@color:red;
-&quot;There is no espace, join us, be reborn. THE HEAD WILL BE PLEASED, IT DEEMS YOU A WORTHY ADDITION&quot;
+&quot;&quot;̶͎̝̬͐͜T̷̻̹̯́ḣ̷̛̲̻̙ͅȩ̴̖͌̽̍r̵̝̾͘e̷̳̗̮͝ ̷̧̹͕̅́i̶̛̜̦͈̔͝ͅs̵̭͙̤̠̀ ̸̥̈́̓͌͠ṅ̸͕̲̼̈͌ͅỏ̸͔̰̺͠ ̷̩͍͚͊͘̕͜ḛ̴̛̜̀͌͑s̵̢͖̽ṗ̵̛̜̠̬̋â̷̓̑̕͜ĉ̴̦̤͙͓̿é̶͔͐̉,̵͔̦̞̳̉̌̈́̆ ̸͇̖̂̋j̴̛̥̃̋o̷̧̡̳̊̾̂i̵͍͂̎͝͝n̵̩͌ ̶̟͕̏͗̀͒ű̸̙̖̯ͅŝ̷̰̼͐̾,̴̳͉͛͝ ̷̲͂̓̍̒b̵̩̼͉̋͗̆e̷̡͎͘ ̴̛̞̜̦̔̏r̸̛͉̈́͐e̷̫̓b̴͈̃̂̐ô̸̧̲r̵̢̯̟͑n̸͙͈͊̒.̵̤͇̮̀̒ ̷͉͖̞̻͂̈́̈́̈́T̴̫̱́̌͑͂H̸͚̟̔̑̈́Ë̷̛͚̬́̂́ ̷̤̤̉͜H̸̢̛̃̈́͗E̸̩͈̼͛͐̂̀Ä̸̬́D̶͓͉͖̊̿̓̿ ̵̮͈̥̄̃̎́W̸̩̊́̂I̵̝̓̈L̷̲̆Ḽ̷̛̘͈̣̌͗ ̸̧̭͉̀͋̄̉͜B̷̼̭̲̖̾̂̕Ẽ̵͓͈̰̳̕ ̶̻͓͝P̸̯̝̫̎̑Ĺ̴̈́͜Ě̵͖͙̘̒A̴̝̒̐́̔S̷͉̦̫̈̓̾E̵͖̞̬̒̃Ď̶̜̲,̷̱̲͐̾̕ ̴̤̈́̎Ȉ̵̢̳͐T̶̖̗̟͔̀̔͐ ̸̥̀͐͠͝D̵̳̖̈́͐E̷̙̦͛̂̄̄E̷̝͇͙͗M̵̢̪͉͔̽̾̈́͠S̷̥͈͊̈́ ̴̩̦͒́̆Ý̶̭͖Ơ̴̢̧͓̟̚͝U̵͕͓̓̏͝ ̸̟͗͐͋͘A̶̮̝̙̰͒̓̆͠ ̵͕̹͛̊̾̕W̵̝̬͋͊͗̚O̵͍̙̽͌R̶̨͖̫̓̏Ṭ̷̨͒͌͗H̷̫̐͑͠Y̴̺̎͠ ̸̟́̂̉͆Ǎ̷̖̥̝̽̎̾͜D̴͔̦͝D̷̹̙͍̆͑̎I̴͍͑͘͘͜Ť̸̨̤̤͉́I̴̪͕͔̤̋O̵̤̲̬͠N̷̡̓́̈́͂ͅ&quot;̵̧̢̥̺̂͊&quot;
 @@
 
 
@@ -683,7 +692,7 @@ I know others exist... within it and through it and I know I need to join them.
 
 [[I need to go back... and nobody will ever find me.-&gt;GameOver]]</tw-passagedata><tw-passagedata pid="61" name="backVentGun" tags="" position="1069.3333333333333,1441.6666666666667" size="100,100">I instinctively grabbed my rifle and started pointing around everywhere, wary of any movement. But there was no one. Still, I didn&#39;t feel safe right now.
 
-[[Not letting go of my rifle for even a second, I tread around the area carefully.-&gt;preBackDoor]]</tw-passagedata><tw-passagedata pid="62" name="backVentBeep" tags="" position="1274.3333333333333,1413.3333333333335" size="100,100">I turned around and grabbed my scanner out of my backpack. There appeared to be... nothing. Is there something wrong with my scanner? Or my senses? There shouldn&#39;t be anyone nearby.
+[[Not letting go of my rifle for even a second, I tread around the area carefully.-&gt;preBackDoor]]</tw-passagedata><tw-passagedata pid="62" name="backVentBeep" tags="" position="1274.3333333333333,1413.3333333333335" size="100,100">I turned around and grabbed my scanner out of my backpack. There appeared to be... nothing. Just the dots I saw earlier but they weren&#39;t in this lot for sure. Is there something wrong with my scanner? Or my senses? There shouldn&#39;t be anyone nearby.
 
 [[Nevertheless, I put my scanner back, and start carefully looking around.-&gt;preBackDoor]]</tw-passagedata><tw-passagedata pid="63" name="preBackDoor" tags="" position="1181,1570.0000000000002" size="100,100">The wind rustling through the vents only grows louder and soon enough, a metallic screeching is added to it, making for a rather cacophonous and unsettling sound.
 
