@@ -143,40 +143,25 @@ After some morning reminiscing, I decided to go out and scavenge for more suppli
 [[It helps me see more than meets the eye.-&gt;beeperexpo]] 
 
 The scanner currently shows....
-&lt;&lt;if $backEnd is false and $frontEnd is false&gt;&gt;
-two dots.
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $backEnd is true or $frontEnd is true&gt;&gt;
-one dot.
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $backEnd is true and $frontEnd is true&gt;&gt;
-No dots?
-&lt;&lt;/if&gt;&gt;
-
-
+&lt;&lt;if $backEnd is false and $frontEnd is false&gt;&gt; two dots. &lt;&lt;/if&gt;&gt;
+&lt;&lt;if $backEnd is true or $frontEnd is true&gt;&gt; one dot. &lt;&lt;/if&gt;&gt;
+&lt;&lt;if $backEnd is true and $frontEnd is true&gt;&gt; No dots?&lt;&lt;/if&gt;&gt;
 Wait... what? This can&#39;t be.
 
 That&#39;s impossible... 
 There must be some mistake in the calibration..  
 [[I could have sworn that--&gt;gearChoice]]</tw-passagedata><tw-passagedata pid="5" name="beeperexpo" tags="" position="843,399" size="100,100">Wait, my scanner...? Simple. It helps me survey my surroundings.
 
-Every time I pick up it, I see these dots on the screen and I think about all the people it represents and what they are doing currently. 
-Some of these folks I see nearby I personally know and trade with them and we get by rather good. But most: not really. 
-
-I can track and see if any danger is nearby. 
+Every time I pick up it, I see these dots on the screen and I think about all the people it represents and what they are doing currently. Some of these folks I see nearby I personally know and trade with them and we get by rather good. But most: not really. 
 
 Each year, however, as more moss covered our old buildings and trees grew out of the freeways the beeper shows less and less dots. 
 
 I stopped thinking about what it means... 
 
-Maybe, it was selfishness that made me sad. 
-Maybe, I view our kind as something so special, so spectacular it can’t, it won’t die. 
-
+Maybe, it was selfishness that made me sad. Maybe, I view our kind as something so special, so spectacular it can’t, it won’t die. 
 Maybe, somewhere outside of my range there were places coming back to life. Maybe, people were actually starting to come together again outside of this wretched city.
 
-[[But that&#39;s probably not the case.-&gt;BeepCount]]</tw-passagedata><tw-passagedata pid="6" name="gearChoice" tags="" position="635,518" size="100,100">&lt;&lt;audio mainsong fadeout&gt;&gt;
-
-There should have been more people...!
+[[But that&#39;s probably not the case.-&gt;BeepCount]]</tw-passagedata><tw-passagedata pid="6" name="gearChoice" tags="" position="635,518" size="100,100">There should have been more people...!
 
 This realization filled me with anxiety. This region wasn&#39;t exactly that populated... Well, at least not anymore, but from what I&#39;ve heard from visitors, there were supposedly more people here in this region than in the rest of the world.
 I should go on a scavenge hunt but I need to investigate more...
@@ -207,7 +192,9 @@ I need to protect myself. Just in case.
 If I took this I can&#39;t take the scanner. It&#39;d be too much of a burden on me. Perhaps it would be better if I took the [[scanner.-&gt;BeepChoiceConfirm]]
 
 [[But now that I think about it... the rifle should probably be fine-&gt;gunReady]].</tw-passagedata><tw-passagedata pid="9" name="StoryInit" tags="" position="637,28" size="100,100">&lt;&lt;cacheaudio &quot;mainsong&quot; &quot;music/new Intro.mp3&quot;&gt;&gt;
-
+&lt;&lt;cacheaudio &quot;exploration&quot; &quot;music/exploration.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;lab&quot; &quot;music/lab.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;theEnd&quot; &quot;music/apocalypse.mp3&quot;&gt;&gt;
 
 &lt;&lt;set $backEnd to false&gt;&gt;
 &lt;&lt;set $frontEnd to false&gt;&gt;
@@ -219,7 +206,10 @@ Ah, whatever.
 
 Should I go through the [[front-&gt;frontChoice]] today?
 
-Or maybe I should circle around and enter from the [[back?-&gt;backChoice]]</tw-passagedata><tw-passagedata pid="11" name="beepReady" tags="" position="555,799" size="100,100">I stuffed the scanner into a nearby backpack and put it on.
+Or maybe I should circle around and enter from the [[back?-&gt;backChoice]]</tw-passagedata><tw-passagedata pid="11" name="beepReady" tags="" position="555,799" size="100,100">&lt;&lt;audio mainsong fadeout&gt;&gt;
+&lt;&lt;audio exploration play&gt;&gt;
+
+I stuffed the scanner into a nearby backpack and put it on.
 
 The beeping every now and again is a bit annoying, but luckily, it&#39;s quiet enough so that only I can hear it.
 
@@ -264,7 +254,10 @@ Not only that, but it seems directly [[installable...-&gt;Install]]
 
 
 
-</tw-passagedata><tw-passagedata pid="16" name="execRoom" tags="" position="344.66666666666663,1973" size="100,100">That voice from before resonated in my head. 
+</tw-passagedata><tw-passagedata pid="16" name="execRoom" tags="" position="344.66666666666663,1973" size="100,100">&lt;&lt;audio exploration fadeout&gt;&gt;
+&lt;&lt;audio lab play&gt;&gt;
+
+That voice from before resonated in my head. 
 I stand still motionlessly in the elevator not knowing what to think. Was that simply an echo from the past? 
 
 The doors open to suite with splendor and richness still shining through some rust and moss. I can totally feel how this place look like few decades ago. 
@@ -335,7 +328,11 @@ Luckily, that got rid of the last bit of shame I had in robbing the dead.
 These people already lost their humanity a long time ago.
 
 [[I advanced.-&gt;backLab]]
-</tw-passagedata><tw-passagedata pid="24" name="backLab" tags="" position="1149.6666666666667,1766.6666666666667" size="100,100">It is very well lit. “Huh, I guess they still have power here” I think to myself. I continue to investigate.
+</tw-passagedata><tw-passagedata pid="24" name="backLab" tags="" position="1149.6666666666667,1766.6666666666667" size="100,100">&lt;&lt;audio exploration fadeout&gt;&gt;
+&lt;&lt;audio lab play&gt;&gt;
+
+
+It is very well lit. “Huh, I guess they still have power here” I think to myself. I continue to investigate.
 
 After threading down the stairs for a while I get to what appears to be some sort of control room or a lab. I find some great tools. Wow, this can be used to enhance the beeper hopefully. But I also notice something more interesting…
 
@@ -456,7 +453,10 @@ Hopefully it was trapped with me in the rubble.
 
 [[If not...--&gt;GameOver]]
 
-&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="GameOver" tags="" position="639,2945" size="100,100"> This survivor has been claimed...
+&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="GameOver" tags="" position="639,2945" size="100,100"> &lt;&lt;audio lab fadeout&gt;&gt;
+
+ 
+ This survivor has been claimed...
  
 &lt;&lt;if $backEnd is true&gt;&gt;The Project Hand has been activated&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $frontEnd is true&gt;&gt;The Project Head has been activated&lt;&lt;/if&gt;&gt;
@@ -502,7 +502,9 @@ I don&#39;t think I could ever understand. But one thing was certain.
 
 [[There was never any chance of retreat.-&gt;GameOver]]
 
-&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="TrueEnd" tags="" position="1729.6666666666667,224.66666666666666" size="100,100">I woke up today with a terrible headache.
+&lt;&lt;set $backEnd to true&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="TrueEnd" tags="" position="1729.6666666666667,224.66666666666666" size="100,100">&lt;&lt;audio apocalypse play&gt;&gt;
+
+I woke up today with a terrible headache.
 
 I had a weird dream, have I explained it yet?
 
@@ -612,7 +614,11 @@ à̸̡͉̣̣̻̘̗̳̹̦̥̝͇̯̄̇͒̚͜͠r̵̬̔̽̓̔̽̑͋͊̊͗̎͆̃͑̚
 
 There is no more.
 
-You are a hand now.</tw-passagedata><tw-passagedata pid="52" name="headTalks" tags="" position="145,2366.6666666666665" size="100,100">I quickally stepped away from the machine.. 
+You are a hand now.
+
+
+&lt;&lt;audio apocalypse fadeout&gt;&gt;
+</tw-passagedata><tw-passagedata pid="52" name="headTalks" tags="" position="145,2366.6666666666665" size="100,100">I quickally stepped away from the machine.. 
 
 	I̶̭͔͈͒̾̓̍ ̷̬͆̿̎̒̿ą̷̜̇m̸͚̈́̿̑͜͝ ̷̦̺͙̥̜͋̀n̴̳̱̪͇̙͛̍̓o̶̖͓͊̽w̷̧̻̰̟͊̊̕ ̵̫͙̿͛c̴̞̜̽̍ò̵̯̫̤̟̗̄m̶̬̠͍̍̐̐̓p̸̡̙̝̺͎͌̉͘ḽ̶̜̇ͅě̴̺̗͐̀̂̂t̶̨̋̿̃e̸̫̭͙͖͋́́
 								Ț̸̨̻͓̭͈͚͖͂̈̊̀̊h̸̗̓͛̊e̴̛͉̤̗̳̲̓͛́̿̓͘ ̸̨͆́͒̑ͅC̸̢̙̼̆́͂͜ī̵͔̂̔̿̾̕͘r̴̢̢͙̖̝͔͓̰̋̾c̸͕̪̓̔́͌́̂͋̃l̴̥̤̗̜̥̺͊̈e̴̞̟͛͆̀̌̽̌̋͘ ̶̨̥̹̱̜̗̄̇ẅ̸͎̯̯͍́̾́͑̎̿̈ǐ̸͇̯͓̬̬̙̮̪̚l̴̙̇̾̈́̔̍l̸͍̼͙̟̇͋͠͝ ̴̨̬̳̹̻̉̓̈͌̑͛̊b̸̦̥͈́̾̀͘e̷͇̗͙͇̤̖̞͂́̓́̈́͗̈ ̵͚̻̻̩̟̳̗̇c̸̛̙̘̈̌͝ò̷̢̬̘̫̿m̶͈͍͈̲̒́͛̔͌p̸̺̜͖̪̟͕̣͕̈͒̈͌͌̊͠ḷ̴̢̹͛ͅe̶͍̫̜̼̔̆̐̆̓̈́͝t̵͙͉͍̤̽̊̋̾̆̚͠e̶̡̦̋̂̎̓͝d̴͇̠̈́
