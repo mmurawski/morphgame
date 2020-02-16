@@ -100,9 +100,9 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="morphgame" startnode="1" creator="Twine" creator-version="2.3.5" ifid="634CDE81-57B5-43B7-83C5-56715BA645FB" zoom="0.6" format="SugarCube" format-version="2.30.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="expo" color="red"></tw-tag><tw-passagedata pid="1" name="MorphIntro" tags="" position="627,172" size="100,100">&lt;&lt;set $haveGun to false&gt;&gt;
+	<tw-storydata name="morphgame" startnode="1" creator="Twine" creator-version="2.3.5" ifid="634CDE81-57B5-43B7-83C5-56715BA645FB" zoom="0.6" format="SugarCube" format-version="2.30.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="expo" color="red"></tw-tag><tw-passagedata pid="1" name="MorphIntro" tags="" position="627,172" size="100,100">&lt;&lt;cacheaudio &quot;mainsong&quot; &quot;music/new Intro.mp3&quot;&gt;&gt;
+&lt;&lt;set $haveGun to false&gt;&gt;
 &lt;&lt;set $haveBeep to false&gt;&gt;
-
 &lt;&lt;audio &quot;mainsong&quot; play&gt;&gt;
 For the first time in my life have seasons be so distinct and natural here.
 
@@ -112,7 +112,9 @@ Nature has started reclaiming most of [[the city-&gt;cityexpo]] over the past fe
 
 [[But today, I need to go out there...-&gt;BeepCount]]
 
-&lt;&lt;script&gt;&gt;UIBar.destroy();&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="worldexpo" tags="expo" position="909,204" size="100,100">The world as it currently is...?
+&lt;&lt;script&gt;&gt;UIBar.destroy();&lt;&lt;/script&gt;&gt;
+
+</tw-passagedata><tw-passagedata pid="2" name="worldexpo" tags="expo" position="909,204" size="100,100">The world as it currently is...?
 
 Well, actually it wasn&#39;t always like this.
 
@@ -159,8 +161,7 @@ Each year, however, as more moss covered our old buildings and trees grew out of
 
 I stopped thinking about what it means... 
 
-Maybe, it was selfishness that made me sad. Maybe, I view our kind as something so special, so spectacular it can’t, it won’t die. 
-Maybe, somewhere outside of my range there were places coming back to life. Maybe, people were actually starting to come together again outside of this wretched city.
+Maybe, it was selfishness that made me sad. Maybe, I view our kind as something so special, so spectacular it can’t, it won’t die. Maybe, somewhere outside of my range there were places coming back to life. Maybe, people were actually starting to come together again outside of this wretched city.
 
 [[But that&#39;s probably not the case.-&gt;BeepCount]]</tw-passagedata><tw-passagedata pid="6" name="gearChoice" tags="" position="635,518" size="100,100">There should have been more people...!
 
@@ -239,7 +240,7 @@ That&#39;s weird. Normally, there&#39;d be at least one person around the area, 
 I continue through the building and noticed the elevators started working... even though working electricity hasn&#39;t been in this building for months now.
 
 Might be interesting to find out where the [[elevators-&gt;frontElevator]] take me.
-</tw-passagedata><tw-passagedata pid="14" name="backChoice" tags="" position="1007,1278.3333333333333" size="100,100">I circled around the back and got to the back door, which was locked. It seemed like it was locked really carefully this time. I guess the last person who was here didn&#39;t want anyone else to come back here. What a complete lack of respect for the code.
+</tw-passagedata><tw-passagedata pid="14" name="backChoice" tags="" position="1018.6666666666666,1211.6666666666665" size="100,100">I circled around the back and got to the back door, which was locked. It seemed like it was locked really carefully this time. I guess the last person who was here didn&#39;t want anyone else to come back here. What a complete lack of respect for the code.
 
 Fortunately for me, I had actually noticed another entrance in a previous run. I just hadn&#39;t used it for... reasons.
 
@@ -293,10 +294,10 @@ After confirming that there&#39;s not something ridiculous like some bear animat
 
 It&#39;s locked. Because of course it is.
 
-&lt;&lt;if $haveGun is true&gt;&gt;[[Hmm, what should I do now?-&gt;gunDoor]]
+&lt;&lt;if $haveGun is true&gt;&gt; [[Hmm, what should I do now?-&gt;gunDoor]]
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $haveBeep is true&gt;&gt;[[Hmm, what should I do now?-&gt;beepDoor]]
+&lt;&lt;if $haveBeep is true&gt;&gt; [[Hmm, what should I do now?-&gt;beepDoor]]
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="backDocuments" tags="" position="1376,1554.6666666666667" size="100,100">I approach the documents carefully.
 
 “Eh, why not&quot; I think to myself while opening the envelope.
@@ -389,13 +390,9 @@ Absolutely disgusting...
 
 I finally found a hole to get out of this squished vent and jumped outside.
 
-&lt;&lt;if $haveGun is true&gt;&gt;
-[[The moment I landed, I felt a presence.-&gt;backVentGun]]&lt;&lt;/if&gt;
+&lt;&lt;if $haveGun is true&gt;&gt;[[The moment I landed, I felt a presence.-&gt;backVentGun]] &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $haveBeep is true&gt;&gt;
-[[The moment I landed, I felt a presence.-&gt;backVentBeep]]
-&lt;&lt;/if&gt;&gt;
-
+&lt;&lt;if $haveBeep is true&gt;&gt; [[The moment I landed, I felt a presence.-&gt;backVentBeep]] &lt;&lt;/if&gt;&gt;
 </tw-passagedata><tw-passagedata pid="30" name="backFightGun" tags="" position="1081,2199.666666666667" size="100,100">I quickly reach for my gun.
 
 AND I OPEN FIRE! The mirror shatters while this strange creature thing approaches.
